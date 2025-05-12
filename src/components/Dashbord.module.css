@@ -1,0 +1,142 @@
+body {
+    background-color: #F7F8F8;
+}
+
+.DashbordContainer {
+    margin: auto;
+    width: 1140px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.searchContainer {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    height: 68px;
+    background-color: #FFFFFF;
+    border: 1px solid #E4E4E4;
+    border-radius: 16px;
+    margin-top: 28px;
+    padding: 0 15px;
+}
+
+.searchInputDiv {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.searchInputDiv img {
+    width: 24px;
+    height: 24px;
+}
+
+.searchInputDiv input {
+    border: none;
+    width: 240px;
+    height: 25px;
+    padding: 5px;
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: 400;
+    font-size: 16px;
+    margin-left: 25px;
+}
+
+.searchProfileDiv {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    border-left: 1px solid #E4E4E4;
+}
+
+.searchProfileDiv img {
+    width: 46px;
+    height: 46px;
+    margin-left: 15px;
+}
+
+.searchProfile {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-left: 15px;
+}
+
+.searchProfile span {
+    color: #282828;
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: 400;
+    font-size: 16px;
+}
+
+.DashbordLogoContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    margin-top: 35PX;
+}
+
+.DashbordLogoDiv {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.DashbordLogoDiv img {
+    width: 30px;
+    height: 30px;
+    margin-right: 15px;
+}
+
+.DashbordLogoDiv span {
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: 400;
+    font-size: 24px;
+}
+
+.DashbordLogoContainer button {
+    width: 132px;
+    height: 45px;
+    border: none;
+    border-radius: 10px;
+    padding: 10px;
+    background-color: #55A3F0;
+    color: #FFFFFF;
+}
+
+.DashbordProductDiv {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    height: 737px;
+    border: 1px solid #E4E4E4;
+    border-radius: 30px;
+    margin-top: 25px;
+}
+
+.DashbordSpanDiv {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    background-color: #F2F2F2;
+    border-radius: 30px 30px 0 0;
+    width: 100%;
+    height: 70px;
+}
+
+.DashbordSpanDiv span{
+    margin-left: 50px;
+}
+
+.DashbordSpanDiv span:first-child{
+    margin-left: 20px;
+}

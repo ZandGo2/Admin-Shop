@@ -5,7 +5,7 @@ const signUPApi = (userData) => {
 };
 
 const loginApi = (userData) => {
-  return axiosInstance.post("/auth/login",userData)
-}
+  return axiosInstance.post("/auth/login", userData);
+};
 
-export { signUPApi,loginApi };
+export { signUPApi, loginApi };
