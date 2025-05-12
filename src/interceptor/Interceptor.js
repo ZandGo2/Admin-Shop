@@ -8,6 +8,8 @@ const axiosInstance = axios.create({
   withCredentials: true,
 });
 
+// axiosInstance.interceptors.request.use()
+
 axiosInstance.interceptors.response.use(
   (response) => {
     return response;

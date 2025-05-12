@@ -102,8 +102,6 @@ const SignUp = () => {
         const messageError = await error.response.data.message;
         if (status == 400) {
           notify("error", messageError);
-        } else {
-          notify("error", messageError);
         }
       }
     } else {
@@ -122,7 +120,6 @@ const SignUp = () => {
       <div className={styles.formDiv}>
         <form onSubmit={submitHandler}>
           <input
-            className=""
             value={username}
             type="text"
             name="username"
@@ -136,7 +133,6 @@ const SignUp = () => {
             )}
           </div>
           <input
-            className=""
             value={password}
             type="password"
             name="password"
@@ -150,7 +146,6 @@ const SignUp = () => {
             )}
           </div>
           <input
-            className=""
             value={confirmPassword}
             type="password"
             name="confirmPassword"
