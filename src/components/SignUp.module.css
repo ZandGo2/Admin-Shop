@@ -1,0 +1,85 @@
+.container {
+    width: 460px;
+    /* height: 596px; */
+    margin: auto;
+    margin-top: 50px;
+    padding: 25px;
+    border: 1px solid #E4E4E4;
+    border-radius: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: #FFFFFF;
+}
+
+.imgDiv {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.imgDiv img {
+    width: 80px;
+    height: 84.47px;
+    color: #55A3F0;
+}
+
+.imgDiv span {
+    margin-top: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 500;
+    font-size: 24px;
+    color: #282828;
+}
+
+.formDiv {
+    width: 100%;
+    margin-top: 15px;
+}
+
+.formDiv input {
+    width: 400px;
+    height: 53px;
+    background-color: #F2F2F2;
+    border: none;
+    border-radius: 15px;
+    padding-left: 15px;
+    margin-top: 10px;
+}
+
+.btnDiv {
+    margin-top: 15px;
+}
+
+.btnDiv button {
+    width: 400px;
+    height: 53px;
+    border: none;
+    border-radius: 15px;
+    padding: 10px;
+    margin-bottom: 25px;
+    background-color: #55A3F0;
+    color: #FFFFFF;
+    font-size: 20px;
+    font-weight: 600;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.btnDiv a {
+    font-size: 16px;
+    font-weight: 400;
+    font-family: 'Times New Roman', Times, serif;
+    text-decoration: none;
+    color: #3A8BED;
+}
+
+.divError {
+    margin-top: 15px;
+}
+
+.error {
+    color: red;
+    font-size: 16px;
+    font-weight: 400;
+    font-family: 'Times New Roman', Times, serif;
+}

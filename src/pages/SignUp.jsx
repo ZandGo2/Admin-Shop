@@ -4,6 +4,8 @@ import { validate } from "../utils/validate";
 import { signUPApi } from "../services/api";
 import { ToastContainer } from "react-toastify";
 import { notify } from "../utils/notify";
+import logo from "../asset/images/Union.png";
+import styles from "../components/SignUp.module.css";
 
 const initialState = {
   data: {
@@ -93,7 +95,7 @@ const SignUp = () => {
           notify("success", messageSuccess);
           setTimeout(() => {
             navigate("/login");
-          }, 3000);
+          }, 2000);
         }
       } catch (error) {
         const status = await error.status;
@@ -112,56 +114,62 @@ const SignUp = () => {
   };
 
   return (
-    <div>
-      <div>
-        <div>
-          <img />
-          <span>Sign Up</span>
-        </div>
-        <div>
-          <form onSubmit={submitHandler}>
-            <input
-              className=""
-              value={username}
-              type="text"
-              name="username"
-              placeholder="Username"
-              onChange={changeHandler}
-              onFocus={focusHandler}
-            />
+    <div className={styles.container}>
+      <div className={styles.imgDiv}>
+        <img src={logo} alt="logo" />
+        <span>Sign Up</span>
+      </div>
+      <div className={styles.formDiv}>
+        <form onSubmit={submitHandler}>
+          <input
+            className=""
+            value={username}
+            type="text"
+            name="username"
+            placeholder="Username"
+            onChange={changeHandler}
+            onFocus={focusHandler}
+          />
+          <div className={styles.divError}>
             {state.touch.username && state.validate.username && (
-              <span>{state.validate.username}</span>
+              <span className={styles.error}>{state.validate.username}</span>
             )}
-            <input
-              className=""
-              value={password}
-              type="password"
-              name="password"
-              placeholder="Password"
-              onChange={changeHandler}
-              onFocus={focusHandler}
-            />
+          </div>
+          <input
+            className=""
+            value={password}
+            type="password"
+            name="password"
+            placeholder="Password"
+            onChange={changeHandler}
+            onFocus={focusHandler}
+          />
+          <div className={styles.divError}>
             {state.touch.password && state.validate.password && (
-              <span>{state.validate.password}</span>
+              <span className={styles.error}>{state.validate.password}</span>
             )}
-            <input
-              className=""
-              value={confirmPassword}
-              type="password"
-              name="confirmPassword"
-              placeholder="Confirm Password"
-              onChange={changeHandler}
-              onFocus={focusHandler}
-            />
+          </div>
+          <input
+            className=""
+            value={confirmPassword}
+            type="password"
+            name="confirmPassword"
+            placeholder="Confirm Password"
+            onChange={changeHandler}
+            onFocus={focusHandler}
+          />
+          <div className={styles.divError}>
             {state.touch.confirmPassword && state.validate.confirmPassword && (
-              <span>{state.validate.confirmPassword}</span>
+              <span className={styles.error}>
+                {state.validate.confirmPassword}
+              </span>
             )}
-            <div>
-              <button>Sign Up</button>
-              <Link to="/login">Do you have Account ?</Link>
-            </div>
-          </form>
-        </div>
+          </div>
+          <div className={styles.btnDiv}>
+            <button>Sign Up</button>
+            <Link to="/login">Do you have Account ?</Link>
+          </div>
+        </form>
       </div>
       <ToastContainer />
     </div>
