@@ -25,6 +25,13 @@ const Dashbord = () => {
           <span>Product ID</span>
         </div>
         <Product />
+        <Product />
+        <Product />
+        <Product />
+        <Product />
+        <Product />
+        <Product />
+        <Product />
       </div>
       <PageNation />
       <ToastContainer />

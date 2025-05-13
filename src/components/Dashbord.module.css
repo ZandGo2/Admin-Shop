@@ -124,8 +124,9 @@ body {
 
 .DashbordSpanDiv {
     display: flex;
+    /* justify-content: flex-start; */
     flex-direction: row;
-    justify-content: flex-start;
+    justify-content: space-around;
     align-items: center;
     background-color: #F2F2F2;
     border-radius: 30px 30px 0 0;
@@ -133,10 +134,75 @@ body {
     height: 70px;
 }
 
-.DashbordSpanDiv span{
-    margin-left: 50px;
+.DashbordSpanDiv span:last-child {
+    margin-right: 170px;
 }
 
-.DashbordSpanDiv span:first-child{
-    margin-left: 20px;
+.ProductContainer {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: 25px;
+    border-bottom: 1px solid #F2F2F2;
+    background-color: #FFFFFF;
+}
+
+.ProductSpanDiv {
+    width: 90%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.ProductSpanDiv span {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 13px;
+    font-weight: 400;
+}
+
+.ProductBtn button {
+    border: none;
+    background-color: #FFFFFF;
+    margin-right: 10px;
+}
+
+.ProductBtn button img {
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+}
+
+.PageNationContainer {
+    margin-top: 25px;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.PageNationContainer button {
+    width: 35px;
+    height: 35px;
+    border-radius: 42px;
+    padding: 10px 15px;
+    margin: 10px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.PageNationBtnNotActive {
+    border: 2px solid #8D8D8D80;
+    color: #8D8D8D80;
+}
+
+.PageNationBtnActive {
+    border: none;
+    background-color: #55A3F0;
+    color: #FFFFFF;
 }
