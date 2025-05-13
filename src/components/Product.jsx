@@ -1,16 +1,16 @@
 import React from "react";
 import deleteIcon from "../asset/images/trash.png";
 import editIcon from "../asset/images/edit.png";
-import styles from "./Dashbord.module.css";
+import styles from "./Dashboard.module.css";
 
-const Product = () => {
+const Product = ({ data: { id, name, price, quantity } }) => {
   return (
     <div className={styles.ProductContainer}>
       <div className={styles.ProductSpanDiv}>
-        <span>T-shirt</span>
-        <span>293</span>
-        <span>90 million</span>
-        <span>90uf9g9h7895467g974</span>
+        <span>{name}</span>
+        <span>{quantity}</span>
+        <span>{price}</span>
+        <span>{id}</span>
       </div>
       <div className={styles.ProductBtn}>
         <button>

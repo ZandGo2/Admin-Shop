@@ -8,4 +8,8 @@ const loginApi = (userData) => {
   return axiosInstance.post("/auth/login", userData);
 };
 
-export { signUPApi, loginApi };
+const GetProductsApi = (page, name) => {
+  return axiosInstance.get(`/products?page=${page}&limit=8&name=${name}`);
+};
+
+export { signUPApi, loginApi, GetProductsApi };

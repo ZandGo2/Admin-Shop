@@ -1,12 +1,23 @@
-import React from "react";
-import styles from "./Dashbord.module.css";
+import styles from "./Dashboard.module.css";
 
-const PageNation = () => {
+const PageNation = ({ page, setPage, data }) => {
+  const totalPages = data.totalPages;
+
   return (
     <div className={styles.PageNationContainer}>
-      <button className={styles.PageNationBtnNotActive}>1</button>
-      <button className={styles.PageNationBtnActive}>2</button>
-      <button className={styles.PageNationBtnNotActive}>3</button>
+      {Array.from({ length: totalPages }).map((i, index) => (
+        <button
+          key={index}
+          className={
+            index + 1 == page
+              ? styles.PageNationBtnActive
+              : styles.PageNationBtnNotActive
+          }
+          onClick={() => setPage(index + 1)}
+        >
+          {index + 1}
+        </button>
+      ))}
     </div>
   );
 };

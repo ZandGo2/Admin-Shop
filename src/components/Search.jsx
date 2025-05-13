@@ -1,21 +1,18 @@
 import React from "react";
 import logoSearch from "../asset/images/search-normal.png";
 import profile from "../asset/images/Felix-Vogel-4.png";
-import styles from "./Dashbord.module.css";
+import styles from "./Dashboard.module.css";
 
-const Search = () => {
-  const changeHandler = () => {
-    console.log("first");
-  };
-
+const Search = ({ name, setName }) => {
   return (
     <div className={styles.searchContainer}>
       <div className={styles.searchInputDiv}>
         <img src={logoSearch} alt="logoSearch" />
         <input
           type="text"
-          onChange={changeHandler}
+          onChange={(e) => setName(e.target.value)}
           placeholder="Search ......."
+          value={name}
         />
       </div>
       <div className={styles.searchProfileDiv}>
