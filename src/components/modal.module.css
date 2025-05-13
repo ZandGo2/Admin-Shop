@@ -1,0 +1,59 @@
+.blurDiv {
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    background-color: #3333337D;
+    backdrop-filter: blur(10px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.containerDelete {
+    width: 472px;
+    height: 338px;
+    background-color: #ffffff;
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    border-radius: 30px;
+}
+
+.containerDelete img {
+    width: 96px;
+    height: 97.83px;
+}
+
+.containerDeleteDivBtn p {
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: 400;
+    font-size: 20px;
+    margin-bottom: 35px;
+}
+
+.btnDeleteCancel {
+    width: 160px;
+    height: 41px;
+    border: none;
+    border-radius: 10px;
+    padding: 10px;
+    background-color: #F43F5E;
+    color: #ffffff;
+    cursor: pointer;
+    margin-right: 15px;
+}
+
+.btnDelete {
+    width: 160px;
+    height: 41px;
+    border: none;
+    border-radius: 10px;
+    padding: 10px;
+    background-color: #DFDFDF;
+    color: #282828CC;
+    cursor: pointer;
+}

@@ -9,33 +9,32 @@ const axiosInstance = axios.create({
   withCredentials: true,
 });
 
-// axiosInstance.interceptors.request.use(
-//   (config) => {
-//     const token = localStorage.getItem("token");
-//     if (token) {
-//       config.headers["Authorization"] = `Bearer ${token}`;
-//     }
-//   },
-//   (error) => {
-//     return Promise.reject(error);
-//   }
-// );
+axiosInstance.interceptors.request.use(
+  (config) => {
+    const token = localStorage.getItem("token");
+    if (token) {
+      config.headers["Authorization"] = `Bearer ${token}`;
+    }
+    return config;
+  },
+  (error) => {
+    return Promise.reject(error);
+  }
+);
 
-// axiosInstance.interceptors.response.use(
-//   (response) => {
-//     console.log(response, 'request');
-    
-//     return response;
-//   },
-//   (error) => {
-//     if (error.response && error.status == 401) {
-//       const messageError = error.response.data.message;
-//       notify("error", messageError);
-//       localStorage.removeItem("token");
-//       window.location.href = "/login";
-//     }
-//     return Promise.reject(error);
-//   }
-// );
+axiosInstance.interceptors.response.use(
+  (response) => {
+    return response;
+  },
+  (error) => {
+    if (error.response && error.status == 401) {
+      const messageError = error.response.data.message;
+      notify("error", messageError);
+      localStorage.removeItem("token");
+      window.location.href = "/login";
+    }
+    return Promise.reject(error);
+  }
+);
 
 export default axiosInstance;
