@@ -16,4 +16,14 @@ const DeleteProductApi = (id) => {
   return axiosInstance.delete(`/products/${id}`);
 };
 
-export { signUPApi, loginApi, GetProductsApi, DeleteProductApi };
+const CreatedProductApi = (productData) => {
+  return axiosInstance.post("/products", productData);
+};
+
+export {
+  signUPApi,
+  loginApi,
+  GetProductsApi,
+  DeleteProductApi,
+  CreatedProductApi,
+};

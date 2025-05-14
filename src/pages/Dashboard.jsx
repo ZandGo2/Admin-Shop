@@ -7,10 +7,12 @@ import PageNation from "../components/PageNation";
 import styles from "../components/Dashboard.module.css";
 import { GetProductsApi } from "../services/api";
 import { useQuery } from "@tanstack/react-query";
+import MakeProduct from "../components/MakeProduct";
 
 const Dashboard = () => {
   const [page, setPage] = useState(1);
   const [name, setName] = useState("");
+  const [make, setMake] = useState(false);
 
   const queryKey = ["ListProduct", page, name];
   const fetchProducts = async () => {
@@ -32,8 +34,9 @@ const Dashboard = () => {
           <img src={logo} alt="logo" />
           <span>Product Management</span>
         </div>
-        <button>Add Product</button>
+        <button onClick={() => setMake(true)}>Add Product</button>
       </div>
+      {make && <MakeProduct setMake={setMake} />}
       <div className={styles.DashboardProductDiv}>
         <div className={styles.DashboardSpanDiv}>
           <span>Product Name</span>

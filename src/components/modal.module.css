@@ -57,3 +57,71 @@
     color: #282828CC;
     cursor: pointer;
 }
+
+/* fjeuif */
+
+.containerMakeProduct {
+    width: 472px;
+    /* height: 338px; */
+    background-color: #ffffff;
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    border-radius: 30px;
+}
+
+.containerMakeProduct h3 {
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: 500;
+    font-size: 20px;
+}
+
+.divInputMakeProduct {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-top: 15px;
+}
+
+.divInputMakeProduct label {
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 500;
+    font-size: 14px;
+}
+
+.divInputMakeProduct input {
+    width: 389px;
+    height: 42px;
+    border: none;
+    border-radius: 8px;
+    padding: 10px;
+    background-color: #F2F2F2;
+    color: #8D8D8D;
+    margin-top: 5px;
+}
+
+.error {
+    margin-top: 5px;
+    color: red;
+    font-size: 16px;
+    font-weight: 400;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.btnCreateDiv {
+    margin-top: 35px;
+}
+
+.btnCreate {
+    width: 160px;
+    height: 41px;
+    border: none;
+    border-radius: 10px;
+    padding: 10px;
+    background-color: #55A3F0;
+    color: #ffffff;
+    cursor: pointer;
+    margin-left: 15px;
+}

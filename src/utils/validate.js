@@ -1,4 +1,22 @@
 export const validate = (data) => {
+  if (data.type == "makeProduct") {
+    const { name, price, quantity } = data;
+    const error = {
+      name: "",
+      price: "",
+      quantity: "",
+    };
+
+    if (name.length < 3) error.name = "name should upper than 3 letter";
+
+    if (price.length < 1) error.price = "price should upper than 1 dolor $";
+
+    if (quantity.length < 1)
+      error.quantity = "quantity should upper than 1 product";
+
+    return error;
+  }
+
   const { username, password, confirmPassword } = data;
   const error = {
     username: "",
