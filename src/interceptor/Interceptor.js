@@ -33,6 +33,9 @@ axiosInstance.interceptors.response.use(
       localStorage.removeItem("token");
       window.location.href = "/login";
     }
+    if (error.response && error.status == 400) {
+      window.location.href = "/";
+    }
     return Promise.reject(error);
   }
 );
