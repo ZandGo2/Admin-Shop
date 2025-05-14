@@ -94,7 +94,7 @@ const MakeProduct = ({ setMake, type, data }) => {
 
   const mutationFn = async (productData) => {
     const id = data.id;
-    if (type == "EditProduct") CreatedProductApi(productData, id);
+    if (type == "EditProduct") UpdateProductApi(productData, id);
     if (type == "MakeProduct") CreatedProductApi(productData);
   };
 
@@ -110,25 +110,26 @@ const MakeProduct = ({ setMake, type, data }) => {
       !state.validate.price &&
       !state.validate.quantity
     ) {
-      let help =
-        type == "MakeProduct"
-          ? { name, price, quantity }
-          : { name, price, quantity, id: data.id };
-      mutate(help, {
-        onSuccess: (data) => {
-          let message =
-            type == "MakeProduct"
-              ? "Product created successfully"
-              : "Product update successfully";
-          notify("success", message);
-          queryClient.invalidateQueries({ queryKey: ["ListProduct"] });
-          setMake(false);
-        },
-        onError: (error) => {
-          notify("error", error.response?.data.message);
-          console.log(error);
-        },
-      });
+      mutate(
+        { name, price, quantity },
+        {
+          onSuccess: (data) => {
+            let message =
+              type == "MakeProduct"
+                ? "Product created successfully"
+                : "Product update successfully";
+            notify("success", message);
+            queryClient.invalidateQueries({ queryKey: ["ListProduct"] });
+            setMake(false);
+          },
+          onError: (error) => {
+            notify("error", error.response?.data.message);
+            if (error.status == 404) {
+              notify("error", "Product Not Found");
+            }
+          },
+        }
+      );
     } else {
       notify("error", "Invalid data !");
       const value = validateData();
