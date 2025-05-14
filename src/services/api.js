@@ -20,10 +20,15 @@ const CreatedProductApi = (productData) => {
   return axiosInstance.post("/products", productData);
 };
 
+const UpdateProductApi = (productData, id) => {
+  return axiosInstance.post(`/products/${id}`, productData);
+};
+
 export {
   signUPApi,
   loginApi,
   GetProductsApi,
   DeleteProductApi,
   CreatedProductApi,
+  UpdateProductApi,
 };

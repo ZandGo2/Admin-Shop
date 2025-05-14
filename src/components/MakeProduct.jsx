@@ -1,6 +1,6 @@
-import { useReducer } from "react";
+import { useEffect, useReducer } from "react";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
-import { CreatedProductApi } from "../services/api";
+import { CreatedProductApi, UpdateProductApi } from "../services/api";
 import { validate } from "../utils/validate";
 import { notify } from "../utils/notify";
 import { ToastContainer } from "react-toastify";
@@ -45,12 +45,17 @@ const reducer = (state, action) => {
         touch: { username: true, password: true, confirmPassword: true },
         validate: value,
       };
+    case "MOUNTING":
+      return {
+        ...state,
+        data: value,
+      };
     default:
       throw new Error("Type is not a true!");
   }
 };
 
-const MakeProduct = ({ setMake }) => {
+const MakeProduct = ({ setMake, type, data }) => {
   const [state, dispatch] = useReducer(reducer, initialState);
   const { name, price, quantity } = state.data;
   const queryClient = useQueryClient();
@@ -76,15 +81,27 @@ const MakeProduct = ({ setMake }) => {
     dispatch({ type: "VALIDATE", payload: { name, value } });
   };
 
+  useEffect(() => {
+    if (type == "EditProduct") {
+      const value = {
+        name: data.name,
+        price: data.price,
+        quantity: data.quantity,
+      };
+      dispatch({ type: "MOUNTING", payload: { value } });
+    }
+  }, []);
+
   const mutationFn = async (productData) => {
-    CreatedProductApi(productData);
+    const id = data.id;
+    if (type == "EditProduct") CreatedProductApi(productData, id);
+    if (type == "MakeProduct") CreatedProductApi(productData);
   };
 
   const { mutate } = useMutation({ mutationFn });
 
   const clickHandler = (e) => {
     e.preventDefault();
-    console.log(typeof price, typeof name, typeof quantity);
     if (
       name &&
       price &&
@@ -93,20 +110,25 @@ const MakeProduct = ({ setMake }) => {
       !state.validate.price &&
       !state.validate.quantity
     ) {
-      mutate(
-        { name, price, quantity },
-        {
-          onSuccess: (data) => {
-            notify("success", "Product created successfully");
-            queryClient.invalidateQueries({ queryKey: ["ListProduct"] });
-            setMake(false);
-          },
-          onError: (error) => {
-            notify("error", error.response?.data.message);
-            console.log(error);
-          },
-        }
-      );
+      let help =
+        type == "MakeProduct"
+          ? { name, price, quantity }
+          : { name, price, quantity, id: data.id };
+      mutate(help, {
+        onSuccess: (data) => {
+          let message =
+            type == "MakeProduct"
+              ? "Product created successfully"
+              : "Product update successfully";
+          notify("success", message);
+          queryClient.invalidateQueries({ queryKey: ["ListProduct"] });
+          setMake(false);
+        },
+        onError: (error) => {
+          notify("error", error.response?.data.message);
+          console.log(error);
+        },
+      });
     } else {
       notify("error", "Invalid data !");
       const value = validateData();
@@ -170,7 +192,7 @@ const MakeProduct = ({ setMake }) => {
             Cancellation
           </button>
           <button className={styles.btnCreate} onClick={clickHandler}>
-            Create
+            {type == "MakeProduct" ? "Create" : "Update"}
           </button>
         </div>
       </div>

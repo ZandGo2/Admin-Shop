@@ -36,7 +36,9 @@ const Dashboard = () => {
         </div>
         <button onClick={() => setMake(true)}>Add Product</button>
       </div>
-      {make && <MakeProduct setMake={setMake} />}
+      {make && (
+        <MakeProduct setMake={setMake} type="MakeProduct" data="nothing" />
+      )}
       <div className={styles.DashboardProductDiv}>
         <div className={styles.DashboardSpanDiv}>
           <span>Product Name</span>
