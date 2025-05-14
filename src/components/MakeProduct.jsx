@@ -120,7 +120,9 @@ const MakeProduct = ({ setMake, type, data }) => {
                 : "Product update successfully";
             notify("success", message);
             queryClient.invalidateQueries({ queryKey: ["ListProduct"] });
-            setMake(false);
+            setTimeout(() => {
+              setMake(false);
+            }, 1000);
           },
           onError: (error) => {
             notify("error", error.response?.data.message);

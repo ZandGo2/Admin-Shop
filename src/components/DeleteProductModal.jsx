@@ -18,7 +18,9 @@ const DeleteProductModal = ({ close, id, setDeleteItem }) => {
       onSuccess: (data) => {
         notify("success", "Deleted successfully");
         queryClient.invalidateQueries({ queryKey: ["ListProduct"] });
-        close(setDeleteItem);
+        setTimeout(() => {
+          close(setDeleteItem);
+        }, 1000);
       },
       onError: (error) => {
         notify("error", error.response?.data.message);
